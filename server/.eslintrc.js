@@ -23,12 +23,25 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'prettier',
+    'import',
   ],
   rules: {
-    "prettier/prettier": "error",
-    "class-methods-use-this": "off",
-    "no-param-reassign": "off",
-    "camelcase": "off",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+    'prettier/prettier': 'error',
+    'class-methods-use-this': 'off',
+    'no-param-reassign': 'off',
+    'camelcase': 'off',
+    'no-unused-vars': ['error', { 'argsIgnorePattern': 'next' }],
+    "import/no-unresolved": "error",
+    "settings": {
+      "import/extensions": [".ts", ".js"],
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".js"]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        }
+      }
+    }
   },
 };
