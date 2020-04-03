@@ -1,7 +1,0 @@
-{
-  "watch": ["src"],
-  "execMap": {
-    "ts": "node -r sucrase/register"
-  },
-  "ext": "ts"
-}
