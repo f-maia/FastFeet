@@ -1,0 +1,16 @@
+<strong>Olá, {{ deliverer_name }}</strong>
+<p>Uma nova entrega foi atribuída a você e está aguardando retirada, confira os detalhes abaixo:</p>
+<p>
+  <strong style="font-size: 18;">ENCOMENDA:</strong> <br />
+  <strong>Identificação do produto:</strong> {{ order_id }} <br />
+  <strong>Produto:</strong> {{ order_name }} <br />
+</p>
+<p>
+  <strong style="font-size: 18;">DESTINATÁRIO:</strong> <br />
+  <strong>Nome:</strong> {{ recipient_name }} <br />
+  <strong>Estado:</strong> {{ recipient_state }} <br />
+  <strong>Cidade:</strong> {{ recipient_city }} <br />
+  <strong>Rua:</strong> {{ recipient_street }} <br />
+  <strong>Numero:</strong> {{ recipient_number }} <br />
+  <strong>Complemento:</strong> {{ recipient_addressDetails }} <br />
+</p>
