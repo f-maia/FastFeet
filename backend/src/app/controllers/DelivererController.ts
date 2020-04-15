@@ -5,28 +5,43 @@ import Deliverer from '../models/Deliverer';
 import File from '../models/File';
 
 class DelivererController {
+  async show(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+
+    const deliverer = await Deliverer.findByPk(id, {
+      attributes: ['id', 'name', 'email', 'created_at'],
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['name', 'path', 'url'],
+        },
+      ],
+    });
+
+    return res.json(deliverer);
+  }
+
   async index(req: Request, res: Response): Promise<Response> {
     const { q, page } = req.query;
     const query = q || '';
 
     let limit = null;
     let offset = 0;
-    if(page){
+    if (page) {
       limit = 6;
       offset = (page - 1) * limit;
     }
 
     const totalCount = await Deliverer.count({
-      where: { name: { [Op.like]: `%${query}%` } }
+      where: { name: { [Op.like]: `%${query}%` } },
     });
 
     const deliverers = await Deliverer.findAll({
       where: { name: { [Op.like]: `%${query}%` } },
       limit,
       offset,
-      order: [
-        ['updated_at', 'DESC']
-      ],
+      order: [['updated_at', 'DESC']],
       attributes: ['id', 'name', 'email'],
       include: [
         {

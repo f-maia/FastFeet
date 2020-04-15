@@ -9,8 +9,6 @@ import Recipient from '../models/Recipient';
 import Deliverer from '../models/Deliverer';
 import File from '../models/File';
 
-import FormatDate from '../Utils/FormatDate';
-
 class DeliveryEndController {
   async update(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
@@ -28,10 +26,9 @@ class DeliveryEndController {
 
     const file = await File.create({ name, path });
 
-    const date = FormatDate(req.body.end_date);
     const orderUpdated = await order.update({
       signature_id: file.id,
-      end_date: date,
+      end_date: new Date(),
     });
 
     return res.json(orderUpdated);
@@ -41,6 +38,10 @@ class DeliveryEndController {
     const order = await Order.findByPk(req.params.id);
     if (!order) {
       return res.status(400).json({ error: 'Order not found.' });
+    }
+
+    if (order.end_date) {
+      return res.status(400).json({ error: 'Order already delivered' });
     }
 
     const { recipient_id, deliveryman_id } = order;

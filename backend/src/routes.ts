@@ -24,7 +24,6 @@ import validateDelivererUpdate from './app/validators/DelivererUpdate';
 import validateOrderStore from './app/validators/OrderStore';
 import validateOrderUpdate from './app/validators/OrderUpdate';
 import validateDeliveryStartUpdate from './app/validators/DeliveryStartUpdate';
-import validateDeliveryEndUpdate from './app/validators/DeliveryEndUpdate';
 import validateProblemStore from './app/validators/ProblemStore';
 
 const routes = Router();
@@ -33,6 +32,8 @@ const upload = multer(multerConfig);
 routes.get('/', (req, res) => {
   res.json({ message: 'OK' });
 });
+
+routes.get('/deliverers/:id', DelivererController.show);
 
 routes.get('/deliveryman/:id/deliveries', DeliveriesController.index);
 
@@ -50,7 +51,6 @@ routes.put(
 );
 routes.put(
   '/delivery/:id/end',
-  validateDeliveryEndUpdate,
   upload.single('file'),
   DeliveryEndController.update
 );
@@ -67,7 +67,6 @@ routes.put(
   RecipientController.update
 );
 routes.delete('/recipients/:id', RecipientController.delete);
-
 
 routes.get('/deliverers', DelivererController.index);
 routes.post('/deliverers', validateDelivererStore, DelivererController.store);

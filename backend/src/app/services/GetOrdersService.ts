@@ -29,7 +29,7 @@ class GetOrdersService {
 
     const orders: Order[] = await Order.findAll({
       where: conditions,
-      attributes: ['id', 'product', 'canceled_at', 'start_date', 'end_date'],
+      attributes: ['id', 'product', 'canceled_at', 'start_date', 'end_date', 'created_at'],
       limit,
       offset,
       order: [

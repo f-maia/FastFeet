@@ -18,18 +18,23 @@ class OrderController {
     const query = q || '';
 
     let condition: { id: {} };
-    if(!!problems){
-      const uniqueOrdersWithProblemsId = await DeliveryProblem.find().distinct("delivery_id");
+    if (problems) {
+      const uniqueOrdersWithProblemsId = await DeliveryProblem.find().distinct(
+        'delivery_id'
+      );
 
       condition = {
-      id:  {
-          [Op.in]: uniqueOrdersWithProblemsId
-        }
-      }
+        id: {
+          [Op.in]: uniqueOrdersWithProblemsId,
+        },
+      };
     }
 
-    console.log(req.query);
-    const [orders, totalCount] = await GetOrdersService.run(query, page, condition);
+    const [orders, totalCount] = await GetOrdersService.run(
+      query,
+      page,
+      condition
+    );
 
     return res.header('X-Total-Count', String(totalCount)).json(orders);
   }
@@ -91,7 +96,6 @@ class OrderController {
 
     await order.destroy();
     await DeliveryProblem.deleteMany({ delivery_id: order.id });
-
 
     return res.json(order);
   }

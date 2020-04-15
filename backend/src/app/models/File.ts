@@ -19,6 +19,8 @@ class File extends Model<IFile> {
         url: {
           type: Sequelize.VIRTUAL,
           get(): string {
+            if (this.name === '@fastfeet/seedsUrl') return this.path;
+
             return `${process.env.APP_URL}/files/${this.path}`;
           },
         },

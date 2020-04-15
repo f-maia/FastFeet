@@ -12,13 +12,16 @@ class DeliveryProblemController {
 
     let limit = null;
     let offset = 0;
-    if(page){
+    if (page) {
       limit = 6;
       offset = (page - 1) * limit;
     }
 
     const totalCount = await DeliveryProblem.count({});
-    const problems = await DeliveryProblem.find().limit(limit).skip(offset).sort({ updated_at: -1 });
+    const problems = await DeliveryProblem.find()
+      .limit(limit)
+      .skip(offset)
+      .sort({ updated_at: -1 });
     const deliveriesId = problems.map(problem => problem.delivery_id);
     const uniqueDeliveriesId = Array.from(new Set(deliveriesId));
 
@@ -48,8 +51,7 @@ class DeliveryProblemController {
           id: problem._id,
           delivery_id: problem.delivery_id,
           description: problem.description,
-        })
-      );
+        }));
 
       return {
         id,
@@ -60,11 +62,13 @@ class DeliveryProblemController {
         recipient,
         deliverer,
         signature,
-        problems: deliveryProblems
-      }
+        problems: deliveryProblems,
+      };
     });
 
-    return res.header('X-Total-Count', String(totalCount)).json(deliveriesWithProblems);
+    return res
+      .header('X-Total-Count', String(totalCount))
+      .json(deliveriesWithProblems);
   }
 }
 

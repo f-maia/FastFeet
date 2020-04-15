@@ -1,19 +1,35 @@
 import { Request, Response } from 'express';
+import { Op } from 'sequelize';
 
 import GetOrdersService from '../services/GetOrdersService';
 
 class DeliveriesController {
   async index(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
-    const { q, page } = req.query;
+    const { page, filter } = req.query;
 
-    const query = q || '';
+    const filters =
+      filter === 'delivered'
+        ? {
+            end_date: {
+              [Op.not]: null,
+            },
+            canceled_at: null,
+          }
+        : {
+            end_date: null,
+          };
 
     const conditions = {
       deliveryman_id: id,
+      ...filters,
     };
 
-    const [orders, totalCount] = await GetOrdersService.run(query, page, conditions);
+    const [orders, totalCount] = await GetOrdersService.run(
+      '',
+      page,
+      conditions
+    );
 
     return res.header('X-Total-Count', String(totalCount)).json(orders);
   }

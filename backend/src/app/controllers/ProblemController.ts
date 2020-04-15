@@ -10,18 +10,21 @@ class ProblemController {
 
     let limit = null;
     let offset = 0;
-    if(page){
+    if (page) {
       limit = 6;
       offset = (page - 1) * limit;
     }
 
     const totalCount = await DeliveryProblem.count({
-      delivery_id: id
+      delivery_id: id,
     });
 
     const problems = await DeliveryProblem.find({
       delivery_id: id,
-    }).limit(limit).skip(offset).sort({ updated_at: -1 });
+    })
+      .limit(limit)
+      .skip(offset)
+      .sort({ updated_at: -1 });
 
     return res.header('X-Total-Count', String(totalCount)).json(problems);
   }
