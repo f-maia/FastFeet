@@ -41,7 +41,7 @@ export default function OrderModal({ data, show, closeModal }) {
               <strong>Retirada:</strong> {formatDate(start_date)}
             </p>
           ) : (
-            <p>Esta encomenda ainda não foi retirada.</p>
+            !canceled_at && <p>Esta encomenda ainda não foi retirada.</p>
           )}
           {!!signature && (
             <p>

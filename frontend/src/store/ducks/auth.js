@@ -14,7 +14,7 @@ const Types = {
 
 const INITIAL_STATE = {
   token: null,
-  signed: true,
+  signed: false,
   loading: false,
   user: null,
 };

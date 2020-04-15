@@ -15,6 +15,7 @@ export default function TableRow({ data, onDelete }) {
     deliverer,
     product,
     start_date,
+    end_date,
     canceled_at,
     signature,
   } = data;
@@ -28,20 +29,6 @@ export default function TableRow({ data, onDelete }) {
       bg: '#BAD2FF',
     };
 
-    if (canceled_at) {
-      tagOptions = {
-        color: '#DE3B3B',
-        text: 'CANCELADA',
-        bg: '#FAB0B0',
-      };
-    }
-    if (signature) {
-      tagOptions = {
-        color: '#2CA42B',
-        text: 'ENTREGUE',
-        bg: '#DFF0DF',
-      };
-    }
     if (!start_date) {
       tagOptions = {
         color: '#C1BC35',
@@ -49,6 +36,21 @@ export default function TableRow({ data, onDelete }) {
         bg: '#F0F0DF',
       };
     }
+    if (end_date && canceled_at) {
+      tagOptions = {
+        color: '#DE3B3B',
+        text: 'CANCELADA',
+        bg: '#FAB0B0',
+      };
+    }
+    if (end_date && signature) {
+      tagOptions = {
+        color: '#2CA42B',
+        text: 'ENTREGUE',
+        bg: '#DFF0DF',
+      };
+    }
+
 
     return (
       <Tag color={tagOptions.color} backgroundColor={tagOptions.bg}>
@@ -113,6 +115,7 @@ TableRow.propTypes = {
     id: PropTypes.number.isRequired,
     product: PropTypes.string.isRequired,
     start_date: PropTypes.string,
+    end_date: PropTypes.string,
     signature: PropTypes.shape({
       url: PropTypes.string.isRequired,
     }),

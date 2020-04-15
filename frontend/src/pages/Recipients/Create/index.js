@@ -10,8 +10,7 @@ export default function RecipientsCreate() {
     try {
       const recipientResponse = await api.post('/recipients', values);
 
-      const { id, recipient } = recipientResponse.data;
-      const { name, zip_code } = recipient;
+      const { id, name, zip_code } = recipientResponse.data;
 
       toast.success(
         <div>
