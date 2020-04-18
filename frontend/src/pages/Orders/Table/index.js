@@ -81,6 +81,7 @@ export default function OrdersTable() {
   }
 
   function handleFilter() {
+    setPage(1);
     setFilter(!filter);
   }
 

@@ -8,6 +8,8 @@
     "dev:debug": "nodemon --inspect src/server.ts",
     "queue": "nodemon src/queue.ts",
     "queue:bebug": "nodemon --inspect src/queue.ts",
+    "dbconfig": "sequelize db:create fastfeet && sequelize db:migrate",
+    "postdbconfig": "sequelize db:seed admin-user",
     "preseeds:pg": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "seeds:pg": "sequelize db:seed:undo:all && sequelize db:seed:all",
     "seeds:mongo": "seed -u 'mongodb://localhost:27017/fastfeet' --drop-database src/database/mongo/seeds",
