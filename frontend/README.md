@@ -1,68 +1,107 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="../.github/frontend.png" />
+</p>
 
-## Available Scripts
+<p align="center">
+  FastFeet's frontend is an administration platform to manage orders, deliverers and recipients! Capable of filtering, listing, registering, updating and deleting. :computer:
+</p>
 
-In the project directory, you can run:
+## Index
+- [Getting Started][100]
+- [Notes][101]
+- [Built With][102]
 
-### `yarn start`
+[100]: #getting-started
+[101]: #notes
+[102]: #built-with
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
+In order to use FastFeet's frontend you will need to configure the [backend][201] first.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+*Please, stick to only one package manager to run all commands on the application.*
 
-### `yarn test`
+### NPM
+If your are using npm you will need to run `npm install` and wait it to finish installing all the dependencies, after that you can run `npm start` to use FastFeet admin portal.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Yarn
+If your are using yarn you will need to run `yarn` and wait it to finish installing all the dependencies, after that you can run `npm  start` to use FastFeet admin portal.
 
-### `yarn build`
+### Usage
+Now with the application running you can start using it! To access all pages your user login will be:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> email: `admin@fasfeet.com`\
+> password: `123456`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+*As this app was built with [create-react-app][202] it has all scripts generate by CRA available.*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[201]: https://github.com/f-maia/-Rocketseat-FastFeet/tree/master/backend
+[202]: https://github.com/facebook/create-react-app
 
-### `yarn eject`
+## Notes
+- Based on the project proposal you are not able to create an admin.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Built With
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Core
+- [react][300]
+- [prop-types][301]
+- [redux][302]
+- [redux-saga][303]
+- [redux-persist][304]
+- [react-router-dom][305]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[300]: https://reactjs.org/
+[301]: https://github.com/facebook/prop-types
+[302]: https://redux.js.org/
+[303]: https://redux-saga.js.org/
+[304]: https://github.com/rt2zz/redux-persist
+[305]: https://reacttraining.com/react-router/web/guides/quick-start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Linting & Style Guides
+- [eslint][306]
+- [prettier][307]
+- [airbnb JS Style Guide][308]
 
-## Learn More
+[306]: https://eslint.org/
+[307]: https://prettier.io/
+[308]: https://github.com/airbnb/javascript
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Debug
+- [reactotron][309]
+- [reactotron-redux][310]
+- [reactotron-redux-saga][311]
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[309]: https://github.com/infinitered/reactotron
+[310]: https://github.com/infinitered/reactotron-redux
+[311]: https://github.com/infinitered/reactotron-redux-saga
 
-### Code Splitting
+### Styles
+- [styled-components][312]
+- [polished][313]
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+[312]: https://styled-components.com/
+[313]: https://github.com/styled-components/polished
 
-### Analyzing the Bundle Size
+### Utils
+- [axios][314]
+- [formik][315]
+- [date-fns][316]
+- [yup][317]
+- [immer][318]
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+[314]: https://github.com/axios/axios
+[315]: https://jaredpalmer.com/formik/docs/overview
+[316]: https://date-fns.org/
+[317]: https://github.com/jquense/yup
+[318]: https://github.com/immerjs/immer
 
-### Making a Progressive Web App
+### Components
+- [react-select][319]
+- [react-toastify][320]
+- [react-icons][321]
+- [react-input-mask][322]
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[319]: https://react-select.com/home
+[320]: https://github.com/fkhadra/react-toastify
+[321]: https://react-icons.netlify.app/#/
+[322]: https://github.com/sanniassin/react-input-mask
