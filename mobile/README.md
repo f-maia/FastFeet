@@ -16,17 +16,18 @@
 [102]: #built-with
 
 ## Getting Started
-To use FastFeet's mobile app you will need to setup an emulator or a real device to aceept it. To do so you can use one of the following guides.
+To use FastFeet's mobile app you will need to setup the [backend][200] first and an emulator or a real device to aceept the app. To do so you can use one of the following guides.
 
 *This project is mainly focused on Android. For more information check the notes section.*
 
 ### Development Environment
-Please, follow the [react native guide][200] referent to your platform, it will guide you through most of the configurations options available today.
+Please, follow the [react native guide][201] referent to your platform, it will guide you through most of the configurations options available today.
 
-*If you speak portuguese I will recomend you to use [the Rocketseat guide][201] it's the best one I could find on the web and covers all 3 majors computer OS and both Android and iOS for emulators and real devices.*
+*If you speak portuguese I will recomend you to use [the Rocketseat guide][202] it's the best one I could find on the web and covers all 3 majors computer OS and both Android and iOS for emulators and real devices.*
 
+[200]: https://github.com/f-maia/-Rocketseat-FastFeet/tree/master/backend
 [201]: https://reactnative.dev/docs/environment-setup
-[200]: https://react-native.rocketseat.dev/
+[202]: https://react-native.rocketseat.dev/
 
 After configuring your device you will need to run some scripts to start using the app. Ensure that your device is properly configured and running before following the following steps.
 
